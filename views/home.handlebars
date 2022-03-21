@@ -1,0 +1,48 @@
+<main class="main_container">
+  <section class="comment_section_container">
+    <div class="comment_section_header" id="comment_section_header"></div>
+    <div id="comment_item_container"></div>
+  </section>
+<script>
+
+let data=[]
+
+async function fetchData() {
+  const res = await fetch (
+			"https://my-json-server.typicode.com/telegraph/frontend-exercise/comments"
+		)
+  data = await res.json()
+  renderHtml(data)   
+}
+
+function sortByLikes (){
+  const sorted = data.sort(({likes:a}, {likes:b}) => b-a);
+  renderHtml(sorted)
+}
+
+function renderHtml(data){
+  document.getElementById("comment_section_header").innerHTML =''
+  document.getElementById("comment_item_container").innerHTML =''
+  document.getElementById("comment_section_header").innerHTML =
+    `<p class="comment_length">${data.length} Comments</p>
+      <div class="comment_section_sort"><label>Sort</label><button class="comment_likes_button" type="button" onclick="sortByLikes()">Likes</button> </div>`
+
+  for(let el of data){
+    document.getElementById("comment_item_container").innerHTML +=
+      `<div class="comment_item">
+        <div class="comment_item_main">
+          <h2 class="comment_item_username">${el.name}</h2>
+          <p class="comment_item_body">${el.body}</p>
+        </div>
+          <span class="comment_item_likes">${el.likes} Likes</span>
+      </div>`
+  }
+
+}
+
+fetchData()
+
+</script>
+</main>
+
+

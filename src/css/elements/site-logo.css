@@ -1,0 +1,27 @@
+svg {
+	max-height: 100%;
+	max-width: 100%;
+}
+.logo_container {
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	column-gap: 8px;
+}
+.site-logo {
+	padding: 1rem;
+}
+.logo {
+	grid-column-start: 1;
+	grid-column-end: 7;
+}
+@media (min-width: 768px) {
+	.site-logo {
+		padding-bottom: 2rem;
+		padding-top: 2rem;
+	}
+
+	.logo {
+		grid-column-start: 1;
+		grid-column-end: 3;
+	}
+}
