@@ -24,7 +24,8 @@ function renderHtml(data){
   document.getElementById("comment_section_header").innerHTML =''
   document.getElementById("comment_item_container").innerHTML =''
   document.getElementById("comment_section_header").innerHTML =
-    `<p class="comment_length">${data.length} Comments</p>
+    `<div><i class="fa-solid fa-message"></i>
+    <span class="comment_length">${data.length} Comments</span></div>
       <div class="comment_section_sort"><label>Sort</label><button class="comment_likes_button" type="button" onclick="sortByLikes()">Likes</button> </div>`
 
   for(let el of data){

@@ -12,6 +12,7 @@
 	border-bottom: 1px solid rgb(202, 202, 202);
 }
 .comment_length {
+	margin-left: 10px;
 	font-size: 24px;
 	font-weight: 700;
 	font-family: "Lora", serif;
